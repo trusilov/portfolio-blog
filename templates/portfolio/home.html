@@ -1,0 +1,39 @@
+{% extends 'basic.html' %}
+{% load static %}
+{% block title %}{% endblock title %}
+
+  {% block content %}
+  <section class="jumbotron text-center">
+    <div class="container pt-5">
+        <img src="{% static 'image/images.jpg' %}" alt="">
+      <h1 class="jumbotron-heading">Trusilov Oleksandr</h1>
+      <p class="lead text-muted">WEB DEVELOPER</p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">About Me</a>
+      </p>
+    </div>
+  </section>
+
+      <div class="album py-5 bg-light">
+      <div class="container">
+          <div class="row">
+              {% for  job in jobs.all %}
+                  <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img class="bd-placeholder-img card-img-top" src="{{ job.image.url }}" >
+                      <div class="card-body">
+                      <p class="card-text">{{ job.summary }}</p>
+                      <div class="d-flex justify-content-between align-items-center">
+                          <div class="btn-group">
+                              <a href="{{ job.gitLink }}"> <button type="button" class="btn btn-sm btn-outline-secondary">Git</button></a>
+                          </div>
+                      </div>
+                      </div>
+                  </div>
+                  </div>
+              {% endfor %}
+          </div>
+      </div>
+      </div>
+
+  {% endblock content %}
